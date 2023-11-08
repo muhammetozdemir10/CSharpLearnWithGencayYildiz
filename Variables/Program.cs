@@ -7,47 +7,43 @@ namespace Variables
 
         static void Main(string[] args)
         {
-            // 265 Copy method in Array Class
-            Array numbers = new int[3] { 1, 2, 3 };
-            Array rakamlar = new int[3];
+            // 265
 
-            Array.Copy(numbers, rakamlar, 3);
-
-            numbers.SetValue(10, 0);
-            Console.WriteLine(rakamlar.GetValue(0));
+            
+            //
         }
 
-        //static void AsyncFunction()
-        //{
-        //    var t = new Task(() =>
-        //    {
-        //        for (int i = 0; i < 10; i++)
-        //        {
-        //            Console.WriteLine($"Current index: {i}");
-        //            Thread.Sleep(1000);
-        //        }
-        //    });
-        //    t.Start();
+        static void AsyncFunction()
+        {
+            var t = new Task(() =>
+            {
+                for (int i = 0; i < 10; i++)
+                {
+                    Console.WriteLine($"Current index: {i}");
+                    Thread.Sleep(1000);
+                }
+            });
+            t.Start();
 
-        //    for (int i = 0; i < 10; i++)
-        //    {
-        //        Console.WriteLine($"Aslan: {i}");
-        //        Thread.Sleep(1000);
-        //    }
+            for (int i = 0; i < 10; i++)
+            {
+                Console.WriteLine($"Aslan: {i}");
+                Thread.Sleep(1000);
+            }
 
-        //    Console.WriteLine("Merhaba ben kodun son mesajiyim.");
-        //}
+            Console.WriteLine("Merhaba ben kodun son mesajiyim.");
+        }
 
-        //static void SyncFunction()
-        //{
-        //    for (int i = 0; i < 10; i++)
-        //    {
-        //        Console.WriteLine($"Current index: {i}");
-        //        Thread.Sleep(1000);
-        //    }
+        static void SyncFunction()
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                Console.WriteLine($"Current index: {i}");
+                Thread.Sleep(1000);
+            }
 
-        //    Console.WriteLine("Merhaba ben kodun son mesajiyim.");
-        //}
+            Console.WriteLine("Merhaba ben kodun son mesajiyim.");
+        }
 
 
         static void DefineVariables()
@@ -1003,6 +999,27 @@ namespace Variables
             {
                 Console.WriteLine(names.GetValue(i));
             }
+        }
+
+        static void ArrayIndexOfMethod()
+        {
+            /*
+             * Array classinda bulunan IndexOf metodu sayedinde herhangi bir array icinde 
+             * olan bir degerin indexsini bulur ve bize doner.
+             */
+            Array numbers = new int[5] { 12, 13, 14, 15, 16 };
+            int index = Array.IndexOf(numbers, 15);
+            Console.WriteLine(index);
+        }
+
+        static void ArrayReverseMethod()
+        {
+            /*
+             * Array Reverse fonksiyonu yazilna dizilerin icindeki degerlerin ters cevirir.
+             */
+            Array numbers = new int[5] { 15, 13, 14, 11, 2 };
+            Array.Reverse(numbers);
+            Console.WriteLine(numbers.GetValue(0));
         }
     }
 }
