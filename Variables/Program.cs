@@ -7,10 +7,8 @@ namespace Variables
 
         static void Main(string[] args)
         {
-            // 268
-
-            
-            //
+            // 
+            Array numbers = new int[3] { 2, 5, 10 };
         }
 
         static void AsyncFunction()
@@ -912,21 +910,6 @@ namespace Variables
             string[] surnames = { "gulec", "taskiran", "saritas", "dus", "yilmaz" };
         }
 
-        static void ArrayLengthProperty()
-        {
-            string[] names = new string[3];
-            names[0] = "Muhammet";
-            names[1] = "Melek";
-            names[2] = "Murat";
-
-
-
-            for (int i = 0; i < names.Length; i++)
-            {
-                Console.WriteLine(names[i]);
-            }
-        }
-
         static void ArrayConstraints()
         {
             /*
@@ -1015,11 +998,44 @@ namespace Variables
         static void ArrayReverseMethod()
         {
             /*
-             * Array Reverse fonksiyonu yazilna dizilerin icindeki degerlerin ters cevirir.
+             * Array Reverse fonksiyonu yazilan dizilerin icindeki degerlerin ters cevirir.
              */
             Array numbers = new int[5] { 15, 13, 14, 11, 2 };
             Array.Reverse(numbers);
             Console.WriteLine(numbers.GetValue(0));
+        }
+
+        static void ArraySortMethod()
+        {
+            /*
+             * Array sort fonksiyonu ile dizide bulunan elemanlari kucukten 
+             * buyuge siralar yada alfabetik sirlamasi yapar.
+             */
+            Array numbers = new int[6] { 2, 99, 8, 69, 22, 44 };
+            Array names = new string[6] { "Muhammet", "Abdulrahman", "Poyraz", "Eren", "Oktay", "Deniz" };
+            Array.Sort(names);
+            foreach (var x in names)
+            {
+                Console.WriteLine(x);
+            }
+        }
+
+        static void ArrayIsReadOnlyProperty()
+        {
+            /*
+             * Array IsReadOnly ozelligi dizinin sadece okunabilirligini durumu bildirir.
+             */
+            Array names = new string[3] { "Muhammet", "Yusuf", "Emre" };
+            Console.WriteLine(names.IsReadOnly);
+        }
+
+        static void ArrayLengthProperty()
+        {
+            /*
+             * Array Length ozelligi bize dizi'nin icindeki eleman sayisini ekrana verir.
+             */
+            Array numbers = new int[3] { 12, 13, 14 };
+            Console.WriteLine(numbers.Length);
         }
     }
 }
