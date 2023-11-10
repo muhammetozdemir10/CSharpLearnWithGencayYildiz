@@ -8,7 +8,13 @@ namespace Variables
         static void Main(string[] args)
         {
             // 
-            Array numbers = new int[3] { 2, 5, 10 };
+            /*
+             * Array CreateInstance fonksiyonu ile 
+             * yeni bir Array nesnesi tanimlamamizi saglar.
+             */
+            int[] numbers = new int[3];
+            Array numbers2 = Array.CreateInstance(typeof(int), 3);
+            
         }
 
         static void AsyncFunction()
@@ -1036,6 +1042,15 @@ namespace Variables
              */
             Array numbers = new int[3] { 12, 13, 14 };
             Console.WriteLine(numbers.Length);
+        }
+
+        static void ArrayRankProperty()
+        {
+            /*
+             * Array Rank ozelligi dizinin boyutunu verir.
+             */
+            Array numbers = new int[3] { 2, 5, 10 };
+            Console.WriteLine(numbers.Rank);
         }
     }
 }
