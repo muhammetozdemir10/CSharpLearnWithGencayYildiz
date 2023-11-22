@@ -7,14 +7,21 @@ namespace Variables
 
         static void Main(string[] args)
         {
-            // 
+            // 320 - 322 videolar izlenecek
+            string name = "Muhammet";
+
+            // -----------------------------------------
+
             /*
-             * Array CreateInstance fonksiyonu ile 
-             * yeni bir Array nesnesi tanimlamamizi saglar.
+             * Contains fonksiyonu ile string degiskenin degerinde 
+             * verilecek deger icinde olup olmadigini kontrol eder.
              */
-            int[] numbers = new int[3];
-            Array numbers2 = Array.CreateInstance(typeof(int), 3);
-            
+
+
+            Console.WriteLine(name.Contains("et"));
+
+
+
         }
 
         static void AsyncFunction()
@@ -1051,6 +1058,203 @@ namespace Variables
              */
             Array numbers = new int[3] { 2, 5, 10 };
             Console.WriteLine(numbers.Rank);
+        }
+
+        static void ArrayCreateInstanceMethod()
+        {
+            /*
+             * Array CreateInstance fonksiyonu ile 
+             * yeni bir Array nesnesi tanimlamamizi saglar.
+             */
+            int[] numbers = new int[3];
+            Array numbers2 = Array.CreateInstance(typeof(int), 3);
+        }
+
+        static void ArrayReverseIndexOperator()
+        {
+            /*
+             * ^ operatoru indexsi tersinden baslatir ve programatik olarak 1 sayisindan baslar.
+             */
+            int[] numbers = new int[] { 12, 35, 85, 25, 1, 78, 86, 37, 76, 34, 82, 654, 987, 582 };
+            Console.WriteLine(numbers[4]);
+            Console.WriteLine(numbers[^10]);
+        }
+
+        static void RangeOperator()
+        {
+            /*
+             * ".." Iki nokta operatoru ile aralik belirleyip ilgili dizinin icinde bulunan elemanlari dondurur.
+             */
+            int[] numbers = new int[] { 2, 3, 75, 354, 13, 65, 26 };
+            int[] newNumbers = numbers[1..];
+            foreach (var number in newNumbers)
+            {
+                Console.WriteLine(number);
+            }
+        }
+
+        static void InnerArrays()
+        {
+            /*
+             * Ic ice diziler bir dizinin icinde elemanlar olarak baska diziler tasiyabilir.
+             */
+            int[][] numbers = new int[3][];
+            numbers[0] = new int[] { 12, 13, 14 };
+            numbers[1] = new int[] { 15, 16, 17 };
+            numbers[2] = new int[] { 18, 19, 20 };
+            Console.WriteLine(numbers[1][2]);
+        }
+
+        static void DimensionalArray()
+        {
+            /*
+             * Cok boyutlu oyun programlamada ve yuksek istatistiksel calismalarda kullanilir.
+             */
+
+            int[,] numbers = new int[3, 3];
+            numbers[0, 0] = 5;
+            numbers[0, 1] = 50;
+            numbers[1, 1] = 100;
+            numbers[2, 1] = 150;
+            numbers[2, 2] = 200;
+            Console.WriteLine(numbers[2, 1]);
+        }
+
+        static void DimensionalArrayVariant1()
+        {
+            // Cok boyutlu array farkli tanimlama varyasyonu.
+            int[,] numbers = {
+                {4, 6, 8 },
+                {78, 57, 23 },
+                {12, 36, 93 },
+            };
+        }
+
+        static void DimensionalArrayLength()
+        {
+            /*
+             * Cok boyutlu arraylarda Length ozelligi boyutlarin eleman sayisi bir birileriyle carparak
+             * uzunlugu elde edilir.
+             */
+
+            int[,] numbers = new int[3, 3];
+            numbers[0, 0] = 5;
+            numbers[0, 1] = 50;
+            numbers[1, 1] = 100;
+            numbers[2, 1] = 150;
+            numbers[2, 2] = 200;
+            Console.WriteLine(numbers.Length);
+        }
+
+        static void DimensionalArrayWithForLoop()
+        {
+            /*
+            * Cok boyutlu diziler elemanlari ekrana yazdirilacagi zaman ic ice donguler kullanilir.
+            */
+            int[,] numbers = new int[3, 3] {
+                { 1, 2, 3 },
+                { 4, 5, 6 },
+                { 7, 8, 9 }
+            };
+
+            for (int i = 0; i < numbers.GetLength(0); i++)
+            {
+                for (int j = 0; j < numbers.GetLength(1); j++)
+                {
+                    Console.WriteLine(numbers[i, j]);
+                }
+
+            }
+        }
+
+        static void StringEmptyVSNull()
+        {
+            /*
+             * NULL:
+             * > Null alabilen degiskenler RAM'de alan tahsisinde bulunmaz.
+             * > Null alabilen turler sadece referansli turlerdir.
+             * 
+             * EMPTY:
+             * > Empty olan degiskenler RAM'de alan tahsisinde bulunur ama deger tasimaz yani bostur.
+             */
+            string name = "";
+            string _name = null;
+        }
+
+        static void StringIsNullOrEmptyMethod()
+        {
+            /*
+             * IsNullOrEmpty fonksiyonu ile degiskenin Null veya Empty ise bize true degerini dondurecektir.
+             */
+            string name = "";
+            Console.WriteLine(string.IsNullOrEmpty(name));
+        }
+
+        static void StringIsNullOrWhiteSpaceMethod()
+        {
+            /*
+             * IsNullOrWhiteSpace fonksiyonu degiskenin degeri 
+             * Null veya Empty veya WhiteSpace(bosluk karakteri) ise True degeri verecektir.
+             */
+            string name = " ";
+            Console.WriteLine(string.IsNullOrWhiteSpace(name));
+        }
+
+        static void ConcatenateStringOperator()
+        {
+            /*
+             * Arti operatoru "+" stringlerle kullanildiginda metinsel ifadeleri birlestirir.
+             */
+            string name = "Muhammet";
+            string surname = "Ozdemir";
+            Console.WriteLine(name + " " + surname);
+        }
+
+        static void StringInterPolationOperator()
+        {
+            /*
+             * String Interpolation operatoru ile degiskenleri string dergerlerin icine gomebilmemizi saglar.
+             */
+
+            string name = "Muhammet";
+            string surname = "Ozdemir";
+            string tcNo = "1809069478";
+            int age = 13;
+            string gender = "Male";
+
+            Console.WriteLine($"Name: {name}");
+            Console.WriteLine($"Surname: {surname}");
+            Console.WriteLine($"Age: {age}");
+            Console.WriteLine($"Gender: {gender}");
+            Console.WriteLine($"TC No: {tcNo}");
+        }
+
+        static void SpecialCharacters()
+        {
+            /*
+             * kacis karakterleri metinsel ifadelerde kod ifadelerinin yazmamizi saglar.
+             * Cift tirnak icin \"
+             * Tek tirnak icin \'
+             * Yeni satira gecmek icin \n
+             * Ters slash icin \\
+             */
+
+            string name = "Muhammet";
+            Console.WriteLine($"Hello, \"{name}\"");
+            Console.WriteLine($"Symbols = ");
+        }
+
+        static void VerbatimOperator()
+        {
+            /*
+             * @ Verbatim operatoru ile metinsel ifadeyi birden fazla satirda yazmamizi saglar.
+             */
+            string paragraph = @"
+Merhaba, ben muhammet 13 yasindayim 
+7. sinifa gidiyorum. 
+Yazilim gelistiricisiyim. boyum 1.47
+                ";
+            Console.WriteLine(paragraph);
         }
     }
 }
