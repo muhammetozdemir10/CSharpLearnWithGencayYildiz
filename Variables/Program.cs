@@ -7,20 +7,14 @@ namespace Variables
 
         static void Main(string[] args)
         {
-            // 320 - 322 videolar izlenecek
-            string name = "Muhammet";
-
-            // -----------------------------------------
+            // 335-337 videolar izlenecek
+            string text = "Merhaba benim adim Muhammet. Yasim 13";
 
             /*
-             * Contains fonksiyonu ile string degiskenin degerinde 
-             * verilecek deger icinde olup olmadigini kontrol eder.
+             * ToUpper fonksiyonu ile metin icerisindeki yazilari buyutur.
              */
 
-
-            Console.WriteLine(name.Contains("et"));
-
-
+            Console.WriteLine(text.ToUpper());
 
         }
 
@@ -1255,6 +1249,187 @@ Merhaba, ben muhammet 13 yasindayim
 Yazilim gelistiricisiyim. boyum 1.47
                 ";
             Console.WriteLine(paragraph);
+        }
+
+        static void StringContainsMethod()
+        {
+            string text = "Merhaba benim adim Muhammet. Yasim 13";
+
+            /*
+             * Contains fonksiyonu ile string degiskenin degerinde 
+             * verilecek deger icinde olup olmadigini kontrol eder.
+             */
+
+            Console.WriteLine(text.Contains("13"));
+        }
+
+        static void StringStartsWithMethod()
+        {
+            string text = "Merhaba benim adim Muhammet. Yasim 13";
+
+            /*
+             * StartsWith fonksiyonu ile string degiskenin degeri
+             * belirledigimiz deger ile baslayip baslayamadigini bize True veya False olarak bildirir.
+             */
+
+            Console.WriteLine(text.StartsWith("Me"));
+        }
+
+        static void StringEndsWithMethod()
+        {
+            string text = "Merhaba benim adim Muhammet. Yasim 13";
+
+            /*
+             * EndsWith fonksiyonu ile string degiskenin degeri
+             * belirledigimiz deger ile bitip bitmedigini bize True veya False olarak bildirir.
+             */
+
+            Console.WriteLine(text.EndsWith("13"));
+        }
+
+        static void StringEqualsMethod()
+        {
+            string text = "Merhaba benim adim Muhammet. Yasim 13";
+
+            /*
+             * Equals fonksiyonu ile string degiskenin degeri
+             * belirledigimiz deger ile esit olup olmadigini bize True veya False olarak bildirir.
+             */
+
+            Console.WriteLine(text.Equals("Merhaba benim adim Muhammet. Yasim 13"));
+        }
+
+        static void StringCompareMethod()
+        {
+            string text = "Merhaba benim adim Muhammet. Yasim 13";
+
+            /*
+             * Compare fonksiyonu metinsel ifadeleri karsilastirmamizi ve
+             * sonuc olarak int turde deger dondurur.
+             * 0 ise her iki degerde esittir.
+             * 1 ise soldaki sagindakinden alfanumerik olarak daha buyuktur.
+             * -1 ise soldaki sagindakinden alfanumerik olarak daha kucuktur.
+             */
+
+            Console.WriteLine(String.Compare(text, text));
+            Console.WriteLine(String.Compare("a", "a"));
+        }
+
+        static void StringCompareToMethod()
+        {
+            string text = "Merhaba benim adim Muhammet. Yasim 13";
+
+            /*
+             * CompareTo fonksiyonu metinsel ifadeleri karsilastirmamizi ve
+             * sonuc olarak int turde deger dondurur.
+             * 0 ise her iki degerde esittir.
+             * 1 ise soldaki sagindakinden alfanumerik olarak daha buyuktur.
+             * -1 ise soldaki sagindakinden alfanumerik olarak daha kucuktur.
+             * NOT: CompareTo fonksiyonu ayit oldugunu degiskenin degeri ile karsilarstirir.
+             */
+
+            Console.WriteLine(text.CompareTo("xghfghxdghdxfhdxghxdrgdfhdxfyhfgnfxdyerdrbb"));
+        }
+
+        static void StringIndexOfMethod()
+        {
+            string text = "Merhaba benim adim Muhammet. Yasim 13";
+
+            /*
+             * IndexOf fonksiyonu ile belirledigimiz karakterin ilk buldugu karakterin
+             * index numarasini dondurur.
+             */
+
+            Console.WriteLine(text.IndexOf('a'));
+        }
+
+        static void StringInsertMethod()
+        {
+            string text = "Merhaba benim adim Muhammet. Yasim 13";
+
+            /*
+             * Insert fonksiyonu ile belirledigimiz pozisyonun 
+             * index numarasina belirledigimiz metini olan metine dahil eder.
+             */
+
+            Console.WriteLine(text.Insert(3, "#"));
+        }
+
+        static void StringRemoveMethod()
+        {
+            string text = "Merhaba benim adim Muhammet. Yasim 13";
+
+            /*
+             * Remove fonksiyonu ile belirledigimiz pozisyonun 
+             * index numarasindan itibaren sonrasini siler.
+             */
+
+            Console.WriteLine(text.Remove(2));
+        }
+
+        static void StringReplaceMethod()
+        {
+            string text = "Merhaba benim adim Muhammet. Yasim 13";
+
+            /*
+             * Replace fonksiyonu ile belirledigimiz metindeki yazinin 
+             * yerine belirledigimiz yeni yaziyla degistirir.
+             * 
+             * NOT: Belirlenen yazi birden fazla metinin icinde bulunuyosa 
+             * tum bulunanlari verilen yeni yaziyla degistirir.
+             */
+
+            Console.WriteLine(text.Replace("Merhaba", "Selam"));
+        }
+
+        static void StringSplitMethod()
+        {
+            string text = "Merhaba benim adim Muhammet. Yasim 13";
+
+            /*
+             * Split fonksiyonu ile belirledigimiz yaziyi 
+             * bulundugu yerde metini keserek string Array dondurur.
+             */
+
+            string[] words = text.Split(" ");
+            foreach (string word in words)
+            {
+                Console.WriteLine(word);
+            }
+        }
+
+        static void StringSubstringMethod()
+        {
+            string text = "Merhaba benim adim Muhammet. Yasim 13";
+
+            /*
+             * Substring fonksiyonu ile belirledigimiz 
+             * index pozisyonundan sonra kalan metini geri dondurur.
+             */
+
+            Console.WriteLine(text.Substring(3));
+        }
+
+        static void StringToLowerMethod()
+        {
+            string text = "Merhaba benim adim Muhammet. Yasim 13";
+
+            /*
+             * ToLower fonksiyonu ile metin icerisindeki yazilari kucultur.
+             */
+
+            Console.WriteLine(text.ToLower());
+        }
+
+        static void StringToUpperMethod()
+        {
+            string text = "Merhaba benim adim Muhammet. Yasim 13";
+
+            /*
+             * ToUpper fonksiyonu ile metin icerisindeki yazilari buyutur.
+             */
+
+            Console.WriteLine(text.ToUpper());
         }
     }
 }
