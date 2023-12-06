@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using Microsoft.Extensions.Primitives;
+using System.Text;
 
 namespace Variables
 {
@@ -7,15 +8,10 @@ namespace Variables
 
         static void Main(string[] args)
         {
-            // 335-337 videolar izlenecek
-            string text = "Merhaba benim adim Muhammet. Yasim 13";
+            // 349 videosunu izle ve burada uygalamalari yaz!
 
-            /*
-             * ToUpper fonksiyonu ile metin icerisindeki yazilari buyutur.
-             */
 
-            Console.WriteLine(text.ToUpper());
-
+            
         }
 
         static void AsyncFunction()
@@ -1430,6 +1426,133 @@ Yazilim gelistiricisiyim. boyum 1.47
              */
 
             Console.WriteLine(text.ToUpper());
+        }
+
+        static void StringTrimMethod()
+        {
+            string text = "     Merhaba benim adim Muhammet. Yasim 13   ";
+
+            /*
+             * Trim fonksiyonu ile metininin basindaki ve sonundaki fazla bosluklari siler.
+             */
+
+            Console.WriteLine(text.Trim());
+        }
+
+        static void StringTrimStartMethod()
+        {
+            string text = "     Merhaba benim adim Muhammet. Yasim 13";
+
+            /*
+             * TrimStart fonksiyonu ile metininin basindaki fazla bosluklari siler.
+             */
+
+            Console.WriteLine(text.TrimStart());
+        }
+
+        static void StringTrimEndMethod()
+        {
+            string text = "Merhaba benim adim Muhammet. Yasim 13    ";
+
+            /*
+             * TrimEnd fonksiyonu ile metininin sonundaki fazla bosluklari siler.
+             */
+
+            Console.WriteLine(text.TrimEnd());
+        }
+
+        static void StringExample1()
+        {
+            // Ad ve soyadin ilk iki harflerinin ekrana yazimi.
+            string name = "Muhammet";
+            string surname = "Ozdemir";
+
+            // Mu Oz
+            Console.WriteLine($"{name[0]}{name[1]} {surname[0]}{surname[1]}");
+        }
+
+        static void StringExample2()
+        {
+            // Yaptigimiz programla verdigimiz yazinin kac harfli oldugunu bize soyler.
+            string? input = Console.ReadLine();
+            Console.WriteLine(input?.Length);
+        }
+
+        static void StringExample3()
+        {
+            // Yazdigimiz program bize kactane kelime yazdiysak rakan olarak bildirir.
+            string? input = Console.ReadLine();
+            string[]? words = input?.Split(" ");
+            Console.WriteLine(words?.Length);
+        }
+
+        static void ArraySegmentDefinition()
+        {
+            /*
+             * ArraySegment Array'inin belirli elemanlari veya tumu referansli bir sekilde 
+             * uzerine islem yapmamizi saglar.
+             * 
+             * Normal Array'in elemanlarina kopyalamak yerine referansli bir sekilde uzerine 
+             * islem yapmamizi olanak tanir.
+             */
+
+            int[] numbers = new int[] { 10, 20, 30, 40, 50 };
+
+            // Vermis oldugumuz Array'inin tum elemanlarini ArraySegment'e
+            // referansli bir sekilde teslim eder.
+            // ArraySegment<int> arraySegment1 = new ArraySegment<int>(numbers);
+
+            // Vermis oldugumuz Array'inin belirli aralikta elemanlarini ArraySegment'e
+            // referansli bir sekilde teslim eder.
+            ArraySegment<int> arraySegment2 = new ArraySegment<int>(numbers, 1, 2);
+            arraySegment2[0] = 5;
+        }
+
+        static void ArraySegmentSliceMethod()
+        {
+            /*
+            * ArraySegment Slice Methodu segmentin icinde bulunan 
+            * elemanlari yine ayri segmentler olusturmamizi saglar
+            */
+
+            int[] numbers = new int[] { 10, 20, 30, 40, 50 };
+            ArraySegment<int> segment = new ArraySegment<int>(numbers);
+            ArraySegment<int> segmentSlice1 = segment.Slice(0, 3);
+            segmentSlice1[0] = 15;
+
+        }
+
+        static void StringSegmentUsage()
+        {
+            /*
+             * StringSegment bir metinin belirli araligini alarak RAM'de yeniden alan tahsisi etmeden
+             * kullanmamizi saglar.
+             * 
+             * NOT: Segment uzerine degisiklik saglandigi zaman ana degiskene etki etmemektedir.
+             */
+            string message = "Abuzer babasinin zoruyla ekmek almaya gitti";
+            StringSegment stringSegment = new StringSegment(message, 0, 6);
+            stringSegment = "Muhammet";
+        }
+
+        static void StringBuilderUsage()
+        {
+            /*
+             * StringBuilder Sinifi: arti operatoru ile birlestirilecek olan degiskenler 
+             * daha az maliyetle birlestirmek icin 
+             * StringSegment algoritmasini kullanarak performansi artirir.
+             */
+            string name = "Muhammet";
+            string surname = "Ozdemir";
+            int schoolNo = 610;
+
+            StringBuilder builder = new StringBuilder();
+            builder.Append(name);
+            builder.Append(' ');
+            builder.Append(surname);
+            builder.Append(' ');
+            builder.Append(schoolNo);
+            Console.WriteLine(builder.ToString());
         }
     }
 }
