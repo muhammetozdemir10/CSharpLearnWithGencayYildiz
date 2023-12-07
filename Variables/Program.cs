@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Primitives;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace Variables
 {
@@ -8,10 +9,26 @@ namespace Variables
 
         static void Main(string[] args)
         {
-            // 349 videosunu izle ve burada uygalamalari yaz!
+            // 363 
 
+            string email = "muhammetozdemir4879@gmail.com";
+            string text = "10234581451141";
 
-            
+            /*
+             * Regular Expressions: Düzenli İfadeler (Regex), metinle ilgili deseni tanımlamak 
+             * veya eşleştirmek için kullanılan bir karakter dizisidir
+             * 
+             * Bir metinin sahip olmasi gereken deseni kuralli bir sekilde ve
+             * duzenli bir ifade yazmamizi saglar.
+             * 
+             * KURALLAR: 
+             * 1-) . : alt satir sonu disinda butun karakterleri gecerlidir.
+             * 2-) ^ : Satir basinin isteninlen ifadeyle baslamasini saglar.
+             */
+
+            Regex regex = new Regex("^1");
+            Match match = regex.Match(text);
+            Console.WriteLine(match.Success);
         }
 
         static void AsyncFunction()
@@ -1552,7 +1569,7 @@ Yazilim gelistiricisiyim. boyum 1.47
             builder.Append(surname);
             builder.Append(' ');
             builder.Append(schoolNo);
-            Console.WriteLine(builder.ToString());
+            Console.WriteLine(builder.ToString());      
         }
     }
 }
