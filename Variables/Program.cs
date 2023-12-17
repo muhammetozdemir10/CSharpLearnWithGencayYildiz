@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Primitives;
+using System.Collections;
 using System.Text;
 using System.Text.RegularExpressions;
 
@@ -9,28 +10,90 @@ namespace Variables
 
         static void Main(string[] args)
         {
-            // 363 
-
-            string email = "muhammetozdemir4879@gmail.com";
-            string text = "10234581451141";
-
-            /*
-             * Regular Expressions: Düzenli İfadeler (Regex), metinle ilgili deseni tanımlamak 
-             * veya eşleştirmek için kullanılan bir karakter dizisidir
-             * 
-             * Bir metinin sahip olmasi gereken deseni kuralli bir sekilde ve
-             * duzenli bir ifade yazmamizi saglar.
-             * 
-             * KURALLAR: 
-             * 1-) . : alt satir sonu disinda butun karakterleri gecerlidir.
-             * 2-) ^ : Satir basinin isteninlen ifadeyle baslamasini saglar.
-             */
-
-            Regex regex = new Regex("^1");
-            Match match = regex.Match(text);
-            Console.WriteLine(match.Success);
+            // Carpma, toplama, bolme ve cikarma fonksiyonlari yapilacak
+            // ve fonksiyonlari mainde cagirip donecek degerler ekrana yazdirilcak
+            DivideApp();
         }
 
+        static int Multiply(int x, int y)
+        {
+            return x * y;
+        }
+   
+        static void MultiplyApp()
+        {
+            // İki sayıyı kullanıcıdan alalım
+            Console.Write("Birinci sayıyı girin: ");
+            int sayi1 = Convert.ToInt32(Console.ReadLine());
+
+            Console.Write("İkinci sayıyı girin: ");
+            int sayi2 = Convert.ToInt32(Console.ReadLine());
+
+            // Çarpma işlemi için fonksiyonları çağırıp sonuçları ekrana yazdıralım
+            int sonuc1 = Multiply(sayi1, sayi2);
+            Console.WriteLine($"Carpma1 Sonuc: {sonuc1}");
+
+        }
+
+        static int Sum(int x, int y)
+        {
+            return x + y;
+        }
+
+        static void SumApp()
+        {
+            // İki sayıyı kullanıcıdan alalım
+            Console.Write("Birinci sayıyı girin: ");
+            int sayi1 = Convert.ToInt32(Console.ReadLine());
+
+            Console.Write("İkinci sayıyı girin: ");
+            int sayi2 = Convert.ToInt32(Console.ReadLine());
+
+            // Toplama işlemi için fonksiyonları çağırıp sonuçları ekrana yazdıralım
+            int sonuc1 = Sum(sayi1, sayi2);
+            Console.WriteLine($"Toplama Sonuc: {sonuc1}");
+
+        }
+
+        static int Divide(int x, int y)
+        {
+            return x / y;
+        }
+
+        static void DivideApp()
+        {
+            // İki sayıyı kullanıcıdan alalım
+            Console.Write("Birinci sayıyı girin: ");
+            int sayi1 = Convert.ToInt32(Console.ReadLine());
+
+            Console.Write("İkinci sayıyı girin: ");
+            int sayi2 = Convert.ToInt32(Console.ReadLine());
+
+            // Çarpma işlemi için fonksiyonları çağırıp sonuçları ekrana yazdıralım
+            int sonuc1 = Divide(sayi1, sayi2);
+            Console.WriteLine($"Bolme Sonuc: {sonuc1}");
+
+        }
+
+         static int Extraction(int x, int y)
+        {
+            return x - y;
+        }
+
+        static void ExtractionApp()
+        {
+            // İki sayıyı kullanıcıdan alalım
+            Console.Write("Birinci sayıyı girin: ");
+            int sayi1 = Convert.ToInt32(Console.ReadLine());
+
+            Console.Write("İkinci sayıyı girin: ");
+            int sayi2 = Convert.ToInt32(Console.ReadLine());
+
+            // Çarpma işlemi için fonksiyonları çağırıp sonuçları ekrana yazdıralım
+            int sonuc1 = Extraction(sayi1, sayi2);
+            Console.WriteLine($"Cikarma Sonuc: {sonuc1}");
+
+        }
         static void AsyncFunction()
         {
             var t = new Task(() =>
@@ -1571,5 +1634,219 @@ Yazilim gelistiricisiyim. boyum 1.47
             builder.Append(schoolNo);
             Console.WriteLine(builder.ToString());      
         }
-    }
+
+        static void EvenAndOdd()
+        {
+            /*
+             * Bu program, kullanıcının girişini daha az satırda kontrol eder. 
+             * Console.WriteLine ifadesinde kullanılan üçlü operatör (ternary operator) sayesinde, 
+             * tek bir satırda çift ya da tek olma durumuna göre mesaj yazdırılır.
+             */
+             
+            Console.WriteLine("Lütfen 1 ile 10 arasında bir sayı girin:");
+            int input = Convert.ToInt32(Console.ReadLine());
+            if (input > 0 && input < 11)
+            {
+                Console.WriteLine(input % 2 == 0 ? "Girilen sayı çift." : "Girilen sayı tek.");
+            }
+            else
+            {
+                Console.WriteLine("Geçersiz giriş. Lütfen 1 ile 10 arasında bir sayı girin.");
+            }
+        }
+
+        static void Regex()
+        {
+            string? text = Console.ReadLine();
+
+            /*
+             * Regular Expressions: Düzenli İfadeler (Regex), metinle ilgili deseni tanımlamak 
+             * veya eşleştirmek için kullanılan bir karakter dizisidir
+             * 
+             * Bir metinin sahip olmasi gereken deseni kuralli bir sekilde ve
+             * duzenli bir ifade yazmamizi saglar.
+             * 
+             * KURALLAR: 
+             * 1-) . : alt satir sonu disinda butun karakterleri gecerlidir.
+             * 2-) ^ : Satir basinin isteninlen ifadeyle baslamasini saglar.
+             */
+
+            if (!string.IsNullOrEmpty(text))
+            {
+                Regex regex = new Regex("[^abc]");
+                Match match = regex.Match(text);
+                if (!match.Success)
+                {
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("Yaziniz gecerlidir.");
+                    Console.ResetColor();
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Yaziniz gecersizdir.");
+                    Console.ResetColor();
+                }
+            }
+            else
+            {
+                Console.WriteLine("Hatali giris yaptiniz");
+            }
+        }
+
+        static void ArrayListUsage()
+        {
+            /*
+             * ArrayList Array'le ayni yapida olup ancak arrayinin sinirliliklarini asan bir yapidir.
+             * ArrayList bir koleksiyondur.
+             * 
+             */
+
+            // ArrayList tanimlama
+            ArrayList brands = new ArrayList();
+
+            // ArrayList'te deger ekleme
+            brands.Add("Zara");
+            brands.Add("Puma");
+            brands.Add("Nike");
+            brands.Add("Adidas");
+            brands.Add("Koton");
+
+            // ArrayList'te deger silme
+            brands.RemoveAt(4);
+
+            // ArrayList'te Boxing yontemi 
+            brands.Add(13);
+
+            // ArrayList Unboxing yontemi
+            Console.WriteLine((int?)brands[4] + 10);
+        }
+
+        static void ArrayListInitializerUsage()
+        {
+            /*
+             * ArrayList'te ilklendirici (Initializer) ile deger tanimlama.
+             */
+
+            ArrayList names = new ArrayList()
+            {
+                "Muhammet",
+                "Poyraz",
+                "Ahmet",
+                "ege",
+                "su"
+            };
+        }
+
+        static void Homework1()
+        {
+            /*
+             * Names olan arrayinin hem forloop ile ve foreach ile icindeki ilgili degerleri ekrana yazacak.
+             * Names arrayinin icindeki eleman sayisi ekrana yazdirilcak.
+             * Namesin arrayinin icindeki olan  elemanlarinin en son elemanin bir oncesini ekrana yazdir.
+             * 
+             */
+
+            ArrayList names = new ArrayList()
+            {
+                "Muhammet",
+                "Eda",
+                "Poyraz",
+                "Melek",
+                "Deniz",
+                546
+            };
+        }
+
+        static void MathFunctionsUsage()
+        {
+            double number = 16.5;
+
+            // Round fonksiyonu vermis oldugumuz sayiyi yuvarlar.
+            Console.WriteLine(Math.Round(number));
+
+            // Sqrt fonksiyonu vermis oldugumuz sayinin karesini verir.
+            Console.WriteLine(Math.Sqrt(number));
+
+            // Abs fonksiyonun vermis oldugumuz sayinin mutlak degerini verir.
+            Console.WriteLine(Math.Abs(-5));
+
+            // Ceiling fonksiyonun vermis oldugumuz sayinin yakin oldugu rakama yukariya yuvarlar.
+            Console.WriteLine(Math.Ceiling(3.01));
+
+            // Floor fonksiyonun vermis oldugumuz sayinin yakin oldugu rakama asagiya yuvarlar.
+            Console.WriteLine(Math.Floor(3.99));
+
+            // Pow fonksiyonun vermis oldugumuz sayi x ve y sayilari x taban y kuvveti olarak hesaplar.
+            Console.WriteLine(Math.Pow(3, 3));
+
+            // Truncate fonksiyonun vermis oldugumuz ondalik sayinin tam sayisini verir.
+            Console.WriteLine(Math.Truncate(3.56));
+        }
+
+        static void DateTimeUsage()
+        {
+            /*
+             * DateTime nedir: Zamanin tarihi ve saati ile ilgili tum islemleri ve 
+             * ozlellikleri barindiran bir struct'tir.
+             */
+
+            // DateTime.Now su anki tarih ve saati bize dondurur.
+            Console.WriteLine(DateTime.Now);
+
+            // DateTime.Today su anki tarih bize dondurur.
+            Console.WriteLine(DateTime.Today);
+
+            // DateTime.IsLeapYear fonksiyonu artik yil olup olmadigini bize dondurur.
+            Console.WriteLine(DateTime.IsLeapYear(2023));
+
+            /* DateTime.Compare fonksiyonu Tarih bir (t1) ile tarih iki (t2) ile  karsilastirir.
+             * -1 ise t1 t2 den kucuk 
+             * sifir ise t1 ve t2 esittir.
+             * 1 ise t1 t2'den buyuk.
+             */
+            Console.WriteLine(DateTime.Compare(new DateTime(2023, 12, 10), new DateTime(2023, 12, 20)));
+        }
+
+        static void TimeSpanUsage()
+        {
+            /*
+             * TimeSpan iki tarihin karsilastirmasi sonucunda aradaki zaman farkini temsil eder.
+             */
+
+            DateTime t1 = DateTime.Now;
+            DateTime t2 = new DateTime(2023, 12, 10);
+            TimeSpan timeSpan = t1 - t2;
+            Console.WriteLine(timeSpan);
+        }
+
+        static void RandomUsage()
+        {
+            /*
+             * Random rastgele bir sayi uretmek icin kullanilan bir siniftir.
+             * 
+             * Next fonksiyonuna max degeri vererek sifirdan 
+             * max degeri arasinda bir rastgele sayi uretir.
+             * Not: Uretilen sayi max degerine ulasmaz.
+             */
+
+            Random rdm = new Random();
+
+            // Maksimum deger
+            Console.WriteLine(rdm.Next(10));
+
+            // Minimum deger ile maksimum deger
+            Console.WriteLine(rdm.Next(10, 50));
+
+            // Rastgele ondalik sayi uretir
+            Console.WriteLine(rdm.NextDouble());
+        }
+
+        static void Selamla(string name)
+        {
+            Console.WriteLine($"Selamun aleykum {name}");
+        }
+
+        
+    }  
 }
