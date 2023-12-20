@@ -12,8 +12,10 @@ namespace Variables
         {
             // Carpma, toplama, bolme ve cikarma fonksiyonlari yapilacak
             // ve fonksiyonlari mainde cagirip donecek degerler ekrana yazdirilcak
-            DivideApp();
+            
         }
+
+        
 
         static int Multiply(int x, int y)
         {
@@ -31,7 +33,7 @@ namespace Variables
 
             // Çarpma işlemi için fonksiyonları çağırıp sonuçları ekrana yazdıralım
             int sonuc1 = Multiply(sayi1, sayi2);
-            Console.WriteLine($"Carpma1 Sonuc: {sonuc1}");
+            Console.WriteLine($"Carpma Sonuc: {sonuc1}");
 
         }
 
@@ -1842,11 +1844,29 @@ Yazilim gelistiricisiyim. boyum 1.47
             Console.WriteLine(rdm.NextDouble());
         }
 
-        static void Selamla(string name)
+        static void OptionalParameter(string name, string surname = "")
         {
-            Console.WriteLine($"Selamun aleykum {name}");
+            /*
+             * İsteğe Bağlı Parametreler fonksiyonun belirli 
+             * parametreleri istege bagli olarak tanimlayabiliriz.
+             * 
+             * İsteğe Bağlı Parametre Tanimlayabilmek icin parametre adinin 
+             * yanina atama operatoru ile varsayilan degeri atamamiz gerekir.
+             */
+            Console.WriteLine($"Hello, {name} {surname}");
         }
 
+        static void NonTrailingNamedArguments(int a, bool b, string c)
+        {
+            /*
+             * Non Trailing Named Arguments ozelligi bir fonksiyonun parametrelerine verilecek olan degerlerin 
+             * siralamasini verme esnadinda degistirmemizi saglar.
+             */
+        }
 
+        static void NonTrailingNamedArgumentsApp()
+        {
+            NonTrailingNamedArguments(c: "abc", a: 672, b: false);
+        }
     }
 }
