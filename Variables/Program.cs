@@ -19,7 +19,7 @@ namespace Variables
         {
             return x * y;
         }
-   
+
         static void MultiplyApp()
         {
             // İki sayıyı kullanıcıdan alalım
@@ -75,7 +75,7 @@ namespace Variables
 
         }
 
-         static int Extraction(int x, int y)
+        static int Extraction(int x, int y)
         {
             return x - y;
         }
@@ -1632,7 +1632,7 @@ Yazilim gelistiricisiyim. boyum 1.47
             builder.Append(surname);
             builder.Append(' ');
             builder.Append(schoolNo);
-            Console.WriteLine(builder.ToString());      
+            Console.WriteLine(builder.ToString());
         }
 
         static void EvenAndOdd()
@@ -1642,7 +1642,7 @@ Yazilim gelistiricisiyim. boyum 1.47
              * Console.WriteLine ifadesinde kullanılan üçlü operatör (ternary operator) sayesinde, 
              * tek bir satırda çift ya da tek olma durumuna göre mesaj yazdırılır.
              */
-             
+
             Console.WriteLine("Lütfen 1 ile 10 arasında bir sayı girin:");
             int input = Convert.ToInt32(Console.ReadLine());
             if (input > 0 && input < 11)
@@ -1847,6 +1847,6 @@ Yazilim gelistiricisiyim. boyum 1.47
             Console.WriteLine($"Selamun aleykum {name}");
         }
 
-        
-    }  
+
+    }
 }
