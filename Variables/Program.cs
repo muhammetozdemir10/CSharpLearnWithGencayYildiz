@@ -10,12 +10,20 @@ namespace Variables
 
         static void Main(string[] args)
         {
-            // Carpma, toplama, bolme ve cikarma fonksiyonlari yapilacak
-            // ve fonksiyonlari mainde cagirip donecek degerler ekrana yazdirilcak
-            
+            /*
+             * && ve
+             * || veya
+             */
+
+            int x = 1;
+
+            Console.WriteLine(x >= 0 && true);
         }
 
         
+
+        
+
 
         static int Multiply(int x, int y)
         {
@@ -189,44 +197,77 @@ namespace Variables
 
         static void ConstantVariables()
         {
+            /*
+             * Sabit degiskenler tanimladigimiz degiskenin degerini degsimesini engellemek icin const operatoru 
+             * degiskenin basina ekleyerek sabit degisken tanimlamamizi olanak tanir 
+             */
             const int a = 10;
             Console.WriteLine(a);
         }
 
         static void OneLineVariablesDefining()
         {
+            /*
+             * Tek satirda ayni veri tipine sahip degiskenleri tanimlama yontemi.
+             * Aralarina virgul ekleyerek tanimlanir. 
+             */
             int a = 2, b = 3;
             Console.WriteLine(a);
             Console.WriteLine(b);
         }
 
-        static void UnboxingObjectType()
+        static void BoxingAndUnBoxingObjectType()
         {
-            object age = 15;
+            /*
+             * Boxing herhangi bir degerin object tipli bir degiskene 
+             * atamasiyla beraber oz veri tipinin ozellikleri kaybolur
+             * 
+             * UnBoxing boxing edilmis herhangi bir degerin oz veri tipini uygun sekilde donusumunu saglar.
+             */
 
-            Console.WriteLine((string)age);
+            // Boxing the value in object
+            object age = 15;
+            string name = "Muhammet";
+            string surname = "Ozdemir";
+
+
+            // Unboxing
+            Console.WriteLine((int)age + 10);
         }
 
         static void VarKeywordUsage()
         {
+            /*
+             * Deger turune gore kendini uygu  deger turune gore adapte eden bir veri tipidir.
+             */
+
             string name = "Muhammet";
-            var _name = "Muhammet";
+            var _name = true;
         }
 
         static void ParseUsage()
         {
+            /*
+             * Parse fonksiyonu ile bir string degerin integer degerine cevirir.
+             */
+
             string? input = "123";
 
             int x = int.Parse(input);
-            Console.WriteLine(x);
+            Console.WriteLine(x + 5);
         }
 
         static void ConvertUsage()
         {
+            /*
+             * Convert sinifi belirli bir deger tipten baska bir 
+             * veri tipini icindeki tasidigi fonksiyonlar sayesinde donusturmemize olanak saglar.
+             */
+
             string? input = "3.14";
 
             double x = Convert.ToDouble(input);
-            Console.WriteLine(x);
+            Console.WriteLine(x + 0.01);
         }
 
         static void AritmaticOperetors()
@@ -241,20 +282,28 @@ namespace Variables
 
         static void CompareOperators()
         {
-            // false
-            Console.WriteLine(true && false);
+            // Logical negation operator !
+            bool passed = false;
+            Console.WriteLine(!passed);  // output: True
+            Console.WriteLine(!true);    // output: False
 
-            // false
-            Console.WriteLine(false ^ false);
+            // Conditional logical AND operator &&
+            Console.WriteLine(true && true);    // output: True
+            Console.WriteLine(true && false);   // output: False
+            Console.WriteLine(false && true);   // output: False
+            Console.WriteLine(false && false);  // output: False
 
-            // true
-            Console.WriteLine((true || false) ^ (true && false));
+            // Conditional logical OR operator ||
+            Console.WriteLine(true || true);    // output: True
+            Console.WriteLine(true || false);   // output: True
+            Console.WriteLine(false || true);   // output: True
+            Console.WriteLine(false || false);  // output: False
 
-            // false
-            Console.WriteLine((true || true) && (true && false));
-
-            // true
-            Console.WriteLine((true ^ false) || (false && false));
+            // Logical exclusive OR (XOR) operator ^
+            Console.WriteLine(true ^ true);    // output: False
+            Console.WriteLine(true ^ false);   // output: True
+            Console.WriteLine(false ^ true);   // output: True
+            Console.WriteLine(false ^ false);  // output: False
         }
 
         static void IncrementAndDecrementOperators()
@@ -378,6 +427,8 @@ namespace Variables
             /* 
              * Bir deger turlu degiskenin null deger alabilmesi icin(yani nullable olabilmesi icin)
              * ? operatoru kullanmasi gerekmektedir
+             * 
+             * null degersizdir.
             */
             int? x = 34;
             Console.WriteLine(x);
@@ -1867,6 +1918,91 @@ Yazilim gelistiricisiyim. boyum 1.47
         static void NonTrailingNamedArgumentsApp()
         {
             NonTrailingNamedArguments(c: "abc", a: 672, b: false);
+        }
+
+
+        static void A(int a)
+        {
+
+        }
+
+        static int B(string a)
+        {
+            return 0;
+        }
+
+        static bool C()
+        {
+            return false;
+        }
+
+        static string D(char a, string[] b, byte c)
+        {
+            return "";
+        }
+
+        static int[] E()
+        {
+            return new int[] { };
+        }
+
+        static void F(byte a = 1)
+        {
+
+        }
+
+        static int G(int x, int y)
+        {
+            return x + y;
+        }
+
+        static string H(string a, string b = "")
+        {
+            //return $"{a}{(string.IsNullOrEmpty(b) ? "" : b)}";
+            //return $"{a}{(string.IsNullOrEmpty(b) ? "" : b)}";
+            //return $"{a}{(string.IsNullOrEmpty(b) ? "" : b)}";
+            //return $"{a}{(string.IsNullOrEmpty(b) ? "" : b)}";
+            return $"{a}{(string.IsNullOrEmpty(b) ? "" : b)}";
+        }
+
+        static void InKeywordWithParameters(in string a)
+        {
+            /*
+             * In keywordu parametrenin basina yazildiginda ilgili parametrenin fonksiyon icerisinde
+             * degerinin degismesini engeller / Salt(sadece) okunur hale getirir.
+             */
+
+            // a = "Muhammet";
+            Console.WriteLine(a);
+        }
+
+        static void TheInnerLocalMethod()
+        {
+            /*
+             * Local Method bir Methodun icerisinde yerel bir Method tanimlamamiza olanak tanir.
+             */
+
+            static string GetMessage()
+            {
+                return "Merhaba Ben Muhammet";
+            }
+
+            Console.WriteLine(GetMessage());
+        }
+
+        static void StaticLocalMethod()
+        {
+            /*
+             * Static local function tanimlanmis olan yerel method bulundugu scopta diger degiskenlere 
+             * performans maliyeti acisindan dolayi direkt erisimine engeller.
+             */
+
+            int x = 5;
+            static void Print()
+            {
+
+                // Console.WriteLine(x);
+            }
         }
     }
 }
