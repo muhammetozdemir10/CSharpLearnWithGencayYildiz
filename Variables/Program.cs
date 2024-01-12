@@ -10,130 +10,9 @@ namespace Variables
 
         static void Main(string[] args)
         {
-            /*
-             * && ve
-             * || veya
-             */
+            // IsOperator();
 
-            int x = 1;
-
-            Console.WriteLine(x >= 0 && true);
-        }
-
-        
-
-        
-
-
-        static int Multiply(int x, int y)
-        {
-            return x * y;
-        }
-
-        static void MultiplyApp()
-        {
-            // İki sayıyı kullanıcıdan alalım
-            Console.Write("Birinci sayıyı girin: ");
-            int sayi1 = Convert.ToInt32(Console.ReadLine());
-
-            Console.Write("İkinci sayıyı girin: ");
-            int sayi2 = Convert.ToInt32(Console.ReadLine());
-
-            // Çarpma işlemi için fonksiyonları çağırıp sonuçları ekrana yazdıralım
-            int sonuc1 = Multiply(sayi1, sayi2);
-            Console.WriteLine($"Carpma Sonuc: {sonuc1}");
-
-        }
-
-        static int Sum(int x, int y)
-        {
-            return x + y;
-        }
-
-        static void SumApp()
-        {
-            // İki sayıyı kullanıcıdan alalım
-            Console.Write("Birinci sayıyı girin: ");
-            int sayi1 = Convert.ToInt32(Console.ReadLine());
-
-            Console.Write("İkinci sayıyı girin: ");
-            int sayi2 = Convert.ToInt32(Console.ReadLine());
-
-            // Toplama işlemi için fonksiyonları çağırıp sonuçları ekrana yazdıralım
-            int sonuc1 = Sum(sayi1, sayi2);
-            Console.WriteLine($"Toplama Sonuc: {sonuc1}");
-
-        }
-
-        static int Divide(int x, int y)
-        {
-            return x / y;
-        }
-
-        static void DivideApp()
-        {
-            // İki sayıyı kullanıcıdan alalım
-            Console.Write("Birinci sayıyı girin: ");
-            int sayi1 = Convert.ToInt32(Console.ReadLine());
-
-            Console.Write("İkinci sayıyı girin: ");
-            int sayi2 = Convert.ToInt32(Console.ReadLine());
-
-            // Çarpma işlemi için fonksiyonları çağırıp sonuçları ekrana yazdıralım
-            int sonuc1 = Divide(sayi1, sayi2);
-            Console.WriteLine($"Bolme Sonuc: {sonuc1}");
-
-        }
-
-        static int Extraction(int x, int y)
-        {
-            return x - y;
-        }
-
-        static void ExtractionApp()
-        {
-            // İki sayıyı kullanıcıdan alalım
-            Console.Write("Birinci sayıyı girin: ");
-            int sayi1 = Convert.ToInt32(Console.ReadLine());
-
-            Console.Write("İkinci sayıyı girin: ");
-            int sayi2 = Convert.ToInt32(Console.ReadLine());
-
-            // Çarpma işlemi için fonksiyonları çağırıp sonuçları ekrana yazdıralım
-            int sonuc1 = Extraction(sayi1, sayi2);
-            Console.WriteLine($"Cikarma Sonuc: {sonuc1}");
-
-        }
-        static void AsyncFunction()
-        {
-            var t = new Task(() =>
-            {
-                for (int i = 0; i < 10; i++)
-                {
-                    Console.WriteLine($"Current index: {i}");
-                    Thread.Sleep(1000);
-                }
-            });
-            t.Start();
-
-            for (int i = 0; i < 10; i++)
-            {
-                Console.WriteLine($"Aslan: {i}");
-                Thread.Sleep(1000);
-            }
-
-            Console.WriteLine("Merhaba ben kodun son mesajiyim.");
-        }
-
-        static void SyncFunction()
-        {
-            for (int i = 0; i < 10; i++)
-            {
-                Console.WriteLine($"Current index: {i}");
-                Thread.Sleep(1000);
-            }
-
-            Console.WriteLine("Merhaba ben kodun son mesajiyim.");
+            // Switch case, Referange
         }
 
 
@@ -148,6 +27,7 @@ namespace Variables
             favoriteGames = new string[4];
             favoriteGames[0] = "Craftrise";
             favoriteGames[1] = "Minecraft";
+            byte f = 255;
 
             name = "Enes";
             float pi = 3.14f;
@@ -241,7 +121,7 @@ namespace Variables
              * Deger turune gore kendini uygu  deger turune gore adapte eden bir veri tipidir.
              */
 
-            string name = "Muhammet";
+            var name = "Muhammet";
             var _name = true;
         }
 
@@ -323,11 +203,13 @@ namespace Variables
             Console.WriteLine(--x);
         }
 
+        // ---- TEST 2 ----
 
         static void HeapOperators()
         {
             int z = 10;
-            z += 2;
+            z *= 2;
+            // z = z + 2;
 
             // (+=) operatoru degiskenin olan digerin uzerine verilen degeri ekler.
             // (-=) operatoru degiskenin olan digerden eksitir.
@@ -345,9 +227,12 @@ namespace Variables
                 : "gamerlere migrostan %20 indirimli kasa";
 
 
+            // <> Bu isaretler ve arasindaki temsilidir. Kod degildir.
+            // (<sart>) ? <Dogru oldugunda donecek deger> : <Yanlis oldugunda donecek deger>;
+
+            // semicolon ;
 
             Console.WriteLine(message);
-
 
             // -------------------------------
 
@@ -355,7 +240,7 @@ namespace Variables
             string mesaj = (ogrenciMi)
                 ? "ogrencilere A101 de okul esyalari %30 indirimli"
                 : "Nike den yetiskinlere ozel ayakkkabi";
-            Console.WriteLine();
+            Console.WriteLine(mesaj);
         }
 
         static void MultiTernaryOperators()
@@ -364,7 +249,7 @@ namespace Variables
             // Eger 16 yasinda ise motor ehliyeti alabilir, A
             // 18 yas altinda ise araba ehliyeti alamaz, B
             // 18 yas ve ustunde ise ehliyet alabilir. C
-            char sonuc = (yas == 16) ? 'A' : (yas <= 18) ? 'B' : 'C';
+            char sonuc = (yas == 16) ? 'A' : ((yas <= 18) ? 'B' : 'C');
         }
 
         static void TernaryHardExample()
@@ -388,12 +273,21 @@ namespace Variables
 
         static void DefaultOperator()
         {
+            /*
+             *  Default operatoru bir veri tipinin varsayilan degerine verir.
+             */
+
             // default
             Console.WriteLine(default(int));
         }
 
         static void IsOperator()
         {
+            /*
+             * Is operatoru boxing edilmis bir degerin veri tipinin 
+             * ne oldugunu ogerene bilmek icin kullanilir.
+             */
+
             // is 
             object x = 12;
             Console.WriteLine(x is int);
@@ -401,6 +295,10 @@ namespace Variables
 
         static void IsNullOperator()
         {
+            /*
+             * Is Null operatoru ilgili degiskenin degeri null olup olmadigini kontrol eder.
+             */
+
             // is null
             object? z = 0;
             Console.WriteLine(z is null);
@@ -409,14 +307,22 @@ namespace Variables
 
         static void IsNotNullOperator()
         {
+            /*
+             * Is Not Null operatoru ilgili degiskenin degeri null olmadigini kontrol eder.
+             */
+
             // is not null
             object? z = "";
-            Console.WriteLine(z is null);
+            Console.WriteLine(z is not null);
             Console.ReadKey();
         }
 
         static void AsOperator()
         {
+            /*
+             * As operatoru boxing edilmis bir degerin X veri tipine olarak donusturur.
+             */
+
             object x = "muhammet";
             string? z = x as string;
             Console.WriteLine(z);
@@ -526,6 +432,9 @@ namespace Variables
             }
         }
 
+        /// <summary>
+        /// Buna calisma !!
+        /// </summary>
         static void GotoKeyword()
         {
             /*
@@ -583,6 +492,9 @@ namespace Variables
             Console.WriteLine(mesaj);
         }
 
+        /// <summary>
+        /// Sinavda gelmeyecek !!
+        /// </summary>
         static void TuplePatterns()
         {
             /*
@@ -642,6 +554,8 @@ namespace Variables
         static void ElseIf()
         {
             /*
+             * Else If if ve else arasina alternatif sorgu eklememize olanak tanir.
+             * 
              * If yapisinda bir sart gerceklestiginde deger bagli olan sartlar gerceklesmez.
              */
 
@@ -660,25 +574,6 @@ namespace Variables
             }
 
 
-        }
-
-        static void ElseIfYapisi()
-        {
-            Console.Write("Bir sayı girin: ");
-            int sayi = int.Parse(Console.ReadLine());
-
-            if (sayi > 0)
-            {
-                Console.WriteLine("Girilen sayı pozitif.");
-            }
-            else if (sayi < 0)
-            {
-                Console.WriteLine("Girilen sayı negatif.");
-            }
-            else
-            {
-                Console.WriteLine("Girilen sayı sıfır.");
-            }
         }
 
         static void ScopesuzIf()
@@ -709,60 +604,6 @@ namespace Variables
             }
         }
 
-        static void LoginSystem()
-        {
-            Console.WriteLine("Kullanici adini giriniz");
-            string? userName = Console.ReadLine();
-
-            Console.WriteLine("Sifrenizi giriniz");
-            string? userPassword = Console.ReadLine();
-            if (userName == "Wizee" && userPassword == "123")
-            {
-                Console.WriteLine("Giris basarili");
-            }
-            else
-            {
-                Console.WriteLine("Girdiginiz kullani adi veya sifre yanlis ");
-            }
-        }
-
-        static void Calculator()
-        {
-            Console.WriteLine("Birinci sayiyi giriniz");
-            int num1 = Convert.ToInt32(Console.ReadLine());
-
-            Console.WriteLine("Ikinci sayiyi giriniz");
-            int num2 = Convert.ToInt32(Console.ReadLine());
-
-            Console.WriteLine("Lutfen turunu sec");
-            Console.WriteLine("Islem turleri: + , - , * , /");
-            string? islemTuru = Console.ReadLine();
-
-            Console.Write("Sonuc:");
-            switch (islemTuru)
-            {
-                case "+":
-                    Console.WriteLine(num1 + num2);
-                    break;
-
-                case "-":
-                    Console.WriteLine(num1 - num2);
-                    break;
-
-                case "*":
-                    Console.WriteLine(num1 * num2);
-                    break;
-
-                case "/":
-                    Console.WriteLine(num1 / num2);
-                    break;
-
-                default:
-                    Console.WriteLine("Efendim dogru islemi secmeniz gerek");
-                    break;
-            }
-        }
-
         static void IfElse()
         {
             int number = Convert.ToInt32(Console.ReadLine());
@@ -776,6 +617,11 @@ namespace Variables
             }
         }
 
+        // ---- TEST 3 ----
+
+        /// <summary>
+        /// Buna calisma !!
+        /// </summary>
         static void PatternMatching()
         {
             /*
