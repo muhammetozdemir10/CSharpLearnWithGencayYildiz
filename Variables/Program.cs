@@ -205,7 +205,7 @@ namespace Variables
 
         // ---- TEST 2 ----
 
-        static void HeapOperators()
+        static void AssignmentOperators()
         {
             int z = 10;
             z *= 2;
