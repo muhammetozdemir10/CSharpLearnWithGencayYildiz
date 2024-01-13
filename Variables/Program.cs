@@ -10,9 +10,7 @@ namespace Variables
 
         static void Main(string[] args)
         {
-            // IsOperator();
 
-            // Switch case, Referange
         }
 
 
