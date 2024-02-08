@@ -16,6 +16,8 @@ namespace Variables
         }
 
 
+        #region TEST 1
+
         static void DefineVariables()
         {
 
@@ -202,8 +204,9 @@ namespace Variables
             // 
             Console.WriteLine(--x);
         }
+        #endregion
 
-        // ---- TEST 2 ----
+        #region TEST 2
 
         static void AssignmentOperators()
         {
@@ -616,8 +619,9 @@ namespace Variables
                 Console.WriteLine("Hayir");
             }
         }
+        #endregion
 
-        // ---- TEST 3 ----
+        #region TEST 3
 
         /// <summary>
         /// Buna calisma !!
@@ -1479,6 +1483,10 @@ Yazilim gelistiricisiyim. boyum 1.47
             Console.WriteLine(words?.Length);
         }
 
+        #endregion
+
+        #region TEST 4
+
         static void ArraySegmentDefinition()
         {
             /*
@@ -1864,5 +1872,6 @@ Yazilim gelistiricisiyim. boyum 1.47
                 // Console.WriteLine(x);
             }
         }
+        #endregion
     }
 }
