@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Text;
 using System.Text.RegularExpressions;
+using Topics.Applications;
 
 namespace Variables
 {
@@ -11,6 +12,7 @@ namespace Variables
         static void Main(string[] args)
         {
 
+            // MiniApplications.PrintPrimeNumbersBetweenTwoToHundred();
         }
 
 
@@ -699,6 +701,20 @@ namespace Variables
             catch (Exception) when (gender == "female")
             {
                 Console.WriteLine("Yanlis islem yaptiniz hanim efendi");
+            }
+        }
+
+        static void ForLoopUsage()
+        {
+            /*
+             * For loop belirli bir kod veya algoritma bir sarta bagli olarak 
+             * veya bagimsiz olarak tekrarli bir sekilde calistirmayi olanak tanir.ww
+             */
+
+            for (int i = 0; i < 10; i++)
+            {
+                // result = result * i;
+                Console.WriteLine(i);
             }
         }
 
