@@ -71,5 +71,49 @@ namespace Topics.Applications
 
             return result;
         }
+
+        static void WASDKeysReader()
+        {
+            while (true)
+            {
+                ConsoleKey key = Console.ReadKey().Key;
+
+                switch (key)
+                {
+                    case ConsoleKey.W:
+                        Console.Clear();
+                        Console.ForegroundColor = ConsoleColor.Blue;
+                        Console.WriteLine("UP");
+                        Console.ResetColor();
+                        break;
+
+                    case ConsoleKey.A:
+                        Console.Clear();
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("LEFT");
+                        Console.ResetColor();
+                        break;
+
+                    case ConsoleKey.S:
+                        Console.Clear();
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.WriteLine("DOWN");
+                        Console.ResetColor();
+                        break;
+
+                    case ConsoleKey.D:
+                        Console.Clear();
+                        Console.ForegroundColor = ConsoleColor.Magenta;
+                        Console.WriteLine("RIGHT");
+                        Console.ResetColor();
+                        break;
+
+
+                    default:
+                        break;
+                }
+
+            }
+        }
     }
 }
