@@ -13,6 +13,18 @@ namespace Variables
         {
 
             // MiniApplications.PrintPrimeNumbersBetweenTwoToHundred();
+            RecursiveMethod();
+        }
+
+        static void RecursiveMethod()
+        {
+            /*
+             * Recursive Method (Tekrarli metot) 
+             * Bir metotun icerisinde metotu cagirabilir.
+             */
+
+            Console.WriteLine("ad");
+            RecursiveMethod();
         }
 
 
@@ -1873,5 +1885,26 @@ Yazilim gelistiricisiyim. boyum 1.47
             }
         }
         #endregion
+
+        /*
+         * Overloading(Coklu yukleme) 
+         * Farkli parametre veya parametre sayisi olan method ayni adi ile 
+         * farkli yeni bir method tanimlanabilir.
+         */
+
+        static void MethodA()
+        {
+            Console.WriteLine("Hello World!");
+        }
+
+        static void MethodA(string text)
+        {
+            Console.WriteLine(text);
+        }
+
+        static string MethodA(int num)
+        {
+            return $"{num + 5}";
+        }
     }
 }
